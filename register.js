@@ -126,8 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(payload)
         })
         .then(async (res) => {
+            console.log('Response status:', res.status);
             const data = await res.json().catch(() => ({}));
-            if (!res.ok) throw new Error(data.error || 'فشل إنشاء الحساب');
+            console.log('Response data:', data);
+            if (!res.ok) {
+                throw new Error(data.error || `فشل إنشاء الحساب (${res.status})`);
+            }
             return data;
         })
         .then((data) => {
@@ -135,11 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data && data.user) {
                     localStorage.setItem('rehal:user', JSON.stringify(data.user));
                 }
-            } catch {}
+            } catch (e) {
+                console.error('Error saving user to localStorage:', e);
+            }
             alert('تم إنشاء الحساب بنجاح! يجري تحويلك للوحة المستخدم.');
             window.location.href = 'dashboard.html';
         })
         .catch((err) => {
+            console.error('Registration error:', err);
             alert(err.message || 'حدث خطأ غير متوقع');
         })
         .finally(() => {

@@ -34,13 +34,31 @@ app.get('/api/health', async (req, res) => {
     const { rows } = await pool.query('SELECT 1');
     res.json({ ok: true, db: rows[0]['?column?'] === 1 });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ ok: false, error: 'DB connection failed' });
+    console.error('Health check error:', err);
+    res.status(500).json({ ok: false, error: 'DB connection failed: ' + err.message });
+  }
+});
+
+// Test database tables
+app.get('/api/test-db', async (req, res) => {
+  try {
+    const usersTable = await pool.query('SELECT COUNT(*) FROM users');
+    const ownersTable = await pool.query('SELECT COUNT(*) FROM owners');
+    res.json({ 
+      ok: true, 
+      users: usersTable.rows[0].count,
+      owners: ownersTable.rows[0].count
+    });
+  } catch (err) {
+    console.error('DB test error:', err);
+    res.status(500).json({ ok: false, error: 'DB test failed: ' + err.message });
   }
 });
 
 app.post('/api/register', async (req, res) => {
   try {
+    console.log('Registration request received:', req.body);
+    
     const {
       fullName,
       email,
@@ -53,17 +71,21 @@ app.post('/api/register', async (req, res) => {
 
     // Basic validation
     if (!fullName || !email || !phone || !userType || !district || !affiliation || !password) {
+      console.log('Missing fields:', { fullName, email, phone, userType, district, affiliation, password: !!password });
       return res.status(400).json({ ok: false, error: 'Missing required fields' });
     }
 
     if (!/^05\d{8}$/.test(phone)) {
+      console.log('Invalid phone format:', phone);
       return res.status(400).json({ ok: false, error: 'Invalid phone format' });
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      console.log('Invalid email format:', email);
       return res.status(400).json({ ok: false, error: 'Invalid email format' });
     }
 
+    console.log('Hashing password...');
     const passwordHash = await bcrypt.hash(password, 10);
 
     const insertSql = `
@@ -73,16 +95,24 @@ app.post('/api/register', async (req, res) => {
     `;
 
     const values = [fullName, email.toLowerCase(), phone, userType, district, affiliation, passwordHash];
+    console.log('Executing query with values:', values.map((v, i) => i === 6 ? '[HASHED]' : v));
 
     const { rows } = await pool.query(insertSql, values);
+    console.log('User created successfully:', rows[0]);
 
     res.status(201).json({ ok: true, user: rows[0] });
   } catch (err) {
-    console.error(err);
+    console.error('Registration error:', err);
+    console.error('Error code:', err.code);
+    console.error('Error message:', err.message);
+    
     if (err && err.code === '23505') {
       return res.status(409).json({ ok: false, error: 'Email or phone already exists' });
     }
-    res.status(500).json({ ok: false, error: 'Internal server error' });
+    if (err && err.code === '42P01') {
+      return res.status(500).json({ ok: false, error: 'Database table not found. Please run: npm run init:db' });
+    }
+    res.status(500).json({ ok: false, error: 'Internal server error: ' + err.message });
   }
 });
 

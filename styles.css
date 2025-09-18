@@ -126,6 +126,27 @@ body {
     opacity: 0.9;
 }
 
+.owner-register-cta { margin-top: 1.5rem; }
+.owner-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    transition: transform .2s, box-shadow .2s, background .2s;
+}
+.owner-cta-link i { font-size: 1.1rem; }
+.owner-cta-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, 0.22);
+}
+
 .hero-image {
     text-align: center;
 }
