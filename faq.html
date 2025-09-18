@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة - رحال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="faq.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <i class="fas fa-bus"></i>
+                        <span>رحال</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">الرئيسية</a></li>
+                    <li><a href="index.html#about">عن المنصة</a></li>
+                    <li><a href="index.html#contact">تواصل معنا</a></li>
+                    <li><a href="faq.html" class="active">الأسئلة الشائعة</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">الأسئلة الشائعة</h1>
+            <p class="hero-subtitle">إجابات على أكثر الأسئلة شيوعاً حول منصة رحال</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-search">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="faqSearch" placeholder="ابحث في الأسئلة الشائعة...">
+                </div>
+            </div>
+
+            <div class="faq-categories">
+                <button class="category-btn active" data-category="all">الكل</button>
+                <button class="category-btn" data-category="general">عام</button>
+                <button class="category-btn" data-category="booking">الحجز</button>
+                <button class="category-btn" data-category="safety">الأمان</button>
+                <button class="category-btn" data-category="payment">الدفع</button>
+                <button class="category-btn" data-category="technical">تقني</button>
+            </div>
+
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div class="faq-category" data-category="general">
+                    <h2 class="category-title">
+                        <i class="fas fa-info-circle"></i>
+                        أسئلة عامة
+                    </h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>ما هي منصة رحال؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>رحال هي منصة رقمية متخصصة في توفير خدمات النقل الآمن للطالبات والعاملات في المملكة العربية السعودية. نربط المستخدمات مع ميكروباصات مخصصة للنساء فقط، مع تحديد المسارات بناءً على منطقتي المغادرة والوصول.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>هل الخدمة متاحة في جميع أنحاء المملكة؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>حالياً، الخدمة متاحة في مدينة الرياض. نعمل على التوسع لتشمل مدن أخرى في المملكة العربية السعودية قريباً.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>ما هي ساعات عمل المنصة؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>المنصة متاحة 24/7 للحجز والاستفسارات. الرحلات متاحة من الساعة 6:00 صباحاً حتى 8:00 مساءً.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Questions -->
+                <div class="faq-category" data-category="booking">
+                    <h2 class="category-title">
+                        <i class="fas fa-calendar-check"></i>
+                        أسئلة الحجز
+                    </h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>كيف يمكنني حجز رحلة؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>يمكنك حجز رحلة بسهولة من خلال الخطوات التالية:<br>
+                            1. اختر نوع المستخدمة (طالبة أو عاملة)<br>
+                            2. حدد منطقة المغادرة والوجهة<br>
+                            3. اختر التاريخ والوقت المناسب<br>
+                            4. ابحث عن الرحلات المتاحة<br>
+                            5. احجز الرحلة المناسبة</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>هل يمكنني إلغاء الحجز؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نعم، يمكنك إلغاء الحجز قبل ساعتين من موعد الرحلة. سيتم خصم رسوم الإلغاء حسب سياسة الإلغاء المطبقة.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>كم مرة يمكنني الحجز مسبقاً؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>يمكنك الحجز مسبقاً لمدة تصل إلى 30 يوماً من تاريخ الحجز.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety Questions -->
+                <div class="faq-category" data-category="safety">
+                    <h2 class="category-title">
+                        <i class="fas fa-shield-alt"></i>
+                        أسئلة الأمان
+                    </h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>ما هي إجراءات الأمان المطبقة؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نطبق أعلى معايير الأمان:<br>
+                            • ميكروباصات مخصصة للنساء فقط<br>
+                            • سائقات مدربات ومؤهلات<br>
+                            • تتبع الرحلة في الوقت الفعلي<br>
+                            • نظام تقييم السائقات<br>
+                            • تأمين شامل على جميع الرحلات</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>هل السائقات مؤهلات ومدربات؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نعم، جميع السائقات لدينا مؤهلات ومدربات على أعلى مستوى. يخضعن لدورات تدريبية شاملة في القيادة الآمنة والتعامل مع الركاب.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>ماذا أفعل في حالة الطوارئ؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>في حالة الطوارئ، يمكنك:<br>
+                            • الاتصال برقم الطوارئ: 920000000<br>
+                            • استخدام زر الطوارئ في التطبيق<br>
+                            • إبلاغ السائقة فوراً<br>
+                            • سيتم توفير المساعدة الفورية</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Questions -->
+                <div class="faq-category" data-category="payment">
+                    <h2 class="category-title">
+                        <i class="fas fa-credit-card"></i>
+                        أسئلة الدفع
+                    </h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>ما هي طرق الدفع المتاحة؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نقبل طرق الدفع التالية:<br>
+                            • البطاقات الائتمانية (فيزا، ماستركارد)<br>
+                            • مدى<br>
+                            • أبل باي<br>
+                            • الدفع عند الوصول (للمسافات القصيرة)</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>هل الدفع آمن؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نعم، نستخدم أحدث تقنيات التشفير لحماية معلومات الدفع. جميع المعاملات محمية بتقنية SSL المتقدمة.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>متى يتم خصم المبلغ؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>يتم خصم المبلغ عند تأكيد الحجز. في حالة الإلغاء، سيتم استرداد المبلغ خلال 3-5 أيام عمل.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Questions -->
+                <div class="faq-category" data-category="technical">
+                    <h2 class="category-title">
+                        <i class="fas fa-cog"></i>
+                        أسئلة تقنية
+                    </h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>هل يوجد تطبيق جوال؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>حالياً، المنصة متاحة عبر الموقع الإلكتروني. نعمل على تطوير تطبيق جوال سيتم إطلاقه قريباً.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>ما هي متطلبات النظام؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>المنصة تعمل على جميع المتصفحات الحديثة:<br>
+                            • Chrome (الإصدار 80+)<br>
+                            • Firefox (الإصدار 75+)<br>
+                            • Safari (الإصدار 13+)<br>
+                            • Edge (الإصدار 80+)</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>كيف يمكنني تتبع رحلتي؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>يمكنك تتبع رحلتك من خلال:<br>
+                            • لوحة المستخدم<br>
+                            • رسائل SMS<br>
+                            • إشعارات البريد الإلكتروني<br>
+                            • تحديثات مباشرة على الموقع</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Support -->
+            <div class="contact-support">
+                <div class="support-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>لم تجد إجابة لسؤالك؟</h3>
+                    <p>فريق الدعم الفني جاهز لمساعدتك على مدار الساعة</p>
+                    <div class="support-buttons">
+                        <a href="index.html#contact" class="btn-primary">تواصل معنا</a>
+                        <a href="tel:+966501234567" class="btn-secondary">
+                            <i class="fas fa-phone"></i>
+                            اتصل بنا
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-bus"></i>
+                        <span>رحال</span>
+                    </div>
+                    <p class="footer-description">
+                        منصة النقل الآمن للطالبات والعاملات في المملكة العربية السعودية. 
+                        نوفر خدمات نقل مريحة وآمنة عبر ميكروباصات مخصصة للنساء فقط.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <div class="footer-links">
+                        <a href="index.html#home">الرئيسية</a>
+                        <a href="index.html#about">عن المنصة</a>
+                        <a href="index.html#contact">تواصل معنا</a>
+                        <a href="faq.html">الأسئلة الشائعة</a>
+                        <a href="register.html">إنشاء حساب</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>الدعم والمساعدة</h4>
+                    <div class="footer-links">
+                        <a href="faq.html">الأسئلة الشائعة</a>
+                        <a href="#">سياسة الخصوصية</a>
+                        <a href="#">الشروط والأحكام</a>
+                        <a href="#">سياسة الإلغاء</a>
+                        <a href="#">دليل الاستخدام</a>
+                        <a href="#">الإبلاغ عن مشكلة</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>معلومات التواصل</h4>
+                    <div class="contact-info-footer">
+                        <div class="contact-item-footer">
+                            <i class="fas fa-phone"></i>
+                            <span>+966 50 123 4567</span>
+                        </div>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@rehal.sa</span>
+                        </div>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الرياض، المملكة العربية السعودية</span>
+                        </div>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-clock"></i>
+                            <span>الأحد - الخميس: 8:00 ص - 6:00 م</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>تابعنا على</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 رحال. جميع الحقوق محفوظة.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">الشروط والأحكام</a>
+                    <a href="#">سياسة الإلغاء</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="faq.js"></script>
+</body>
+</html>
