@@ -1,0 +1,34 @@
+{
+  "name": "rehal-platform",
+  "version": "1.0.0",
+  "description": "منصة رحال - منصة النقل الآمن للطالبات والعاملات",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 3000 -o",
+    "dev": "npx live-server --port=3000 --open=/index.html",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "transportation",
+    "women",
+    "saudi-arabia",
+    "microbus",
+    "booking",
+    "arabic"
+  ],
+  "author": "REHAL Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/rehal-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/rehal-platform/issues"
+  },
+  "homepage": "https://github.com/your-username/rehal-platform#readme"
+}
