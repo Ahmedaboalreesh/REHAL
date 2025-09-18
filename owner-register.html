@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل مالكة الميكروباص - رحال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <header class="auth-header">
+        <nav class="auth-nav">
+            <a class="brand" href="index.html">
+                <i class="fas fa-bus"></i>
+                <span>رحال</span>
+            </a>
+            <div class="nav-actions">
+                <a href="index.html#home" class="link">الرئيسية</a>
+                <a href="index.html#about" class="link">عن المنصة</a>
+                <a href="index.html#contact" class="link">تواصل</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="auth-wrapper">
+        <section class="auth-card">
+            <h1 class="title">تسجيل مالكة ميكروباص</h1>
+            <p class="subtitle">انضمي إلى شبكة رحال وقدمي خدمات نقل آمنة ومخصصة</p>
+
+            <form id="ownerRegisterForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ownerName">الاسم الكامل</label>
+                        <input type="text" id="ownerName" name="ownerName" placeholder="الاسم كما في الهوية" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">اسم المنشأة (اختياري)</label>
+                        <input type="text" id="company" name="company" placeholder="مثال: نقل الريم">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الجوال</label>
+                        <input type="tel" id="phone" name="phone" inputmode="numeric" placeholder="05XXXXXXXX" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="plateNumber">رقم اللوحة</label>
+                        <input type="text" id="plateNumber" name="plateNumber" placeholder="مثال: أ ب ج 1234" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="capacity">السعة</label>
+                        <input type="number" id="capacity" name="capacity" min="4" max="20" placeholder="عدد المقاعد" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="licenseNumber">رقم الرخصة</label>
+                        <input type="text" id="licenseNumber" name="licenseNumber" placeholder="رقم رخصة القيادة" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="licenseExpiry">تاريخ انتهاء الرخصة</label>
+                        <input type="date" id="licenseExpiry" name="licenseExpiry" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">كلمة المرور</label>
+                        <div class="password-field">
+                            <input type="password" id="password" name="password" placeholder="••••••••" minlength="8" required>
+                            <button type="button" class="toggle-pass" aria-label="إظهار/إخفاء كلمة المرور"><i class="far fa-eye"></i></button>
+                        </div>
+                        <small class="hint">على الأقل 8 أحرف مع حرف ورقم</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">تأكيد كلمة المرور</label>
+                        <div class="password-field">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required>
+                            <button type="button" class="toggle-pass" aria-label="إظهار/إخفاء كلمة المرور"><i class="far fa-eye"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row single">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">أوافق على الشروط والأحكام وسياسة الخصوصية</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-user-plus"></i>
+                    إنشاء الحساب
+                </button>
+
+                <p class="alt-action">
+                    لست مالكة؟
+                    <a href="register.html" class="link">تسجيل راكبة</a>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <script src="owner-register.js"></script>
+</body>
+</html>
+

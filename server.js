@@ -86,6 +86,51 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
+app.post('/api/owners/register', async (req, res) => {
+  try {
+    const {
+      ownerName,
+      company,
+      email,
+      phone,
+      plateNumber,
+      capacity,
+      licenseNumber,
+      licenseExpiry,
+      password
+    } = req.body || {};
+
+    if (!ownerName || !email || !phone || !plateNumber || !capacity || !licenseNumber || !licenseExpiry || !password) {
+      return res.status(400).json({ ok: false, error: 'Missing required fields' });
+    }
+    if (!/^05\d{8}$/.test(phone)) {
+      return res.status(400).json({ ok: false, error: 'Invalid phone format' });
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ ok: false, error: 'Invalid email format' });
+    }
+    if (Number.isNaN(Number(capacity)) || capacity < 4 || capacity > 20) {
+      return res.status(400).json({ ok: false, error: 'Invalid capacity' });
+    }
+
+    const passwordHash = await bcrypt.hash(password, 10);
+    const sql = `
+      INSERT INTO owners (owner_name, company, email, phone, plate_number, capacity, license_number, license_expiry, password_hash)
+      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
+      RETURNING id, owner_name AS ownerName, email, phone, company, plate_number AS plateNumber, capacity, status, created_at AS createdAt;
+    `;
+    const values = [ownerName, company || null, email.toLowerCase(), phone, plateNumber, capacity, licenseNumber, licenseExpiry, passwordHash];
+    const { rows } = await pool.query(sql, values);
+    res.status(201).json({ ok: true, owner: rows[0] });
+  } catch (err) {
+    console.error(err);
+    if (err && err.code === '23505') {
+      return res.status(409).json({ ok: false, error: 'Email or phone already exists' });
+    }
+    res.status(500).json({ ok: false, error: 'Internal server error' });
+  }
+});
+
 // Fallback to index.html for root
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));

@@ -21,3 +21,22 @@ CREATE TABLE IF NOT EXISTS public.users (
 CREATE INDEX IF NOT EXISTS users_email_idx ON public.users (email);
 CREATE INDEX IF NOT EXISTS users_phone_idx ON public.users (phone);
 
+-- Owners (bus owners) table
+CREATE TABLE IF NOT EXISTS public.owners (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  owner_name text NOT NULL,
+  company text,
+  email citext UNIQUE NOT NULL,
+  phone text UNIQUE NOT NULL,
+  plate_number text NOT NULL,
+  capacity int NOT NULL CHECK (capacity >= 4 AND capacity <= 20),
+  license_number text NOT NULL,
+  license_expiry date NOT NULL,
+  password_hash text NOT NULL,
+  status text NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','approved','rejected')),
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS owners_email_idx ON public.owners (email);
+CREATE INDEX IF NOT EXISTS owners_phone_idx ON public.owners (phone);
+
