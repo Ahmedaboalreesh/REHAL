@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة المالك - رحال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="owner-dashboard.css">
+</head>
+<body>
+    <header class="dash-header">
+        <div class="dash-nav">
+            <a href="index.html" class="brand">
+                <i class="fas fa-bus"></i>
+                <span>رحال</span>
+            </a>
+            <nav class="links">
+                <a href="#" id="link-overview" class="active">نظرة عامة</a>
+                <a href="#" id="link-fleet">الأسطول</a>
+                <a href="#" id="link-trips">الرحلات</a>
+            </nav>
+            <div class="actions">
+                <button id="logoutBtn" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    خروج
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dash-container">
+        <section id="section-overview" class="section active">
+            <h1 class="title">مرحبا، <span id="ownerName">—</span></h1>
+            <div class="grid">
+                <div class="card stats">
+                    <div>
+                        <div class="stat-number" id="statFleet">0</div>
+                        <div class="stat-label">عدد المركبات</div>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="statUpcoming">0</div>
+                        <div class="stat-label">رحلات قادمة</div>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="statCompleted">0</div>
+                        <div class="stat-label">رحلات مكتملة</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-info-circle"></i> حالة الحساب</h2>
+                    <div id="accountStatus" class="status">—</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-fleet" class="section">
+            <h1 class="title">الأسطول</h1>
+            <div class="card">
+                <form id="addVehicleForm" class="inline-form">
+                    <input type="text" id="vPlate" placeholder="رقم اللوحة" required>
+                    <input type="number" id="vCapacity" placeholder="السعة" min="4" max="20" required>
+                    <input type="text" id="vFeatures" placeholder="مزايا (مكيف, واي فاي)">
+                    <button class="primary" type="submit"><i class="fas fa-plus"></i> إضافة مركبة</button>
+                </form>
+                <div id="fleetList" class="table"></div>
+            </div>
+        </section>
+
+        <section id="section-trips" class="section">
+            <h1 class="title">الرحلات</h1>
+            <div class="card">
+                <form id="addTripForm" class="grid-form">
+                    <select id="tPlate" required></select>
+                    <select id="tDeparture" required>
+                        <option value="">منطقة المغادرة</option>
+                        <option value="riyadh-center">وسط الرياض</option>
+                        <option value="riyadh-north">شمال الرياض</option>
+                        <option value="riyadh-south">جنوب الرياض</option>
+                        <option value="riyadh-east">شرق الرياض</option>
+                        <option value="riyadh-west">غرب الرياض</option>
+                        <option value="olaya">العليا</option>
+                        <option value="malaz">الملز</option>
+                        <option value="nasim">النسيم</option>
+                        <option value="shifa">الشفا</option>
+                        <option value="hittin">حطين</option>
+                        <option value="al-nakheel">النخيل</option>
+                    </select>
+                    <select id="tDestination" required>
+                        <option value="">الوجهة النهائية</option>
+                        <option value="ksu">جامعة الملك سعود</option>
+                        <option value="imamu">جامعة الإمام محمد بن سعود</option>
+                        <option value="ksau">جامعة الملك سعود للعلوم الصحية</option>
+                        <option value="psu">جامعة الأميرة نورة</option>
+                        <option value="riyadh-center">وسط الرياض</option>
+                        <option value="riyadh-north">شمال الرياض</option>
+                        <option value="riyadh-south">جنوب الرياض</option>
+                        <option value="riyadh-east">شرق الرياض</option>
+                        <option value="riyadh-west">غرب الرياض</option>
+                        <option value="olaya">العليا</option>
+                        <option value="malaz">الملز</option>
+                        <option value="nasim">النسيم</option>
+                        <option value="shifa">الشفا</option>
+                        <option value="hittin">حطين</option>
+                        <option value="al-nakheel">النخيل</option>
+                    </select>
+                    <input id="tDate" type="date" required>
+                    <input id="tTime" type="time" required>
+                    <input id="tPrice" type="number" min="5" step="1" placeholder="السعر (ريال)" required>
+                    <button class="primary" type="submit"><i class="fas fa-plus"></i> إضافة رحلة</button>
+                </form>
+                <div id="tripsList" class="table"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="owner-dashboard.js"></script>
+</body>
+</html>
+

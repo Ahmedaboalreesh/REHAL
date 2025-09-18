@@ -82,9 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!res.ok) throw new Error(data.error || 'فشل إنشاء الحساب');
       return data;
     })
-    .then(() => {
-      alert('تم إنشاء الحساب بنجاح. سيتم مراجعة بياناتك.');
-      window.location.href = 'index.html';
+    .then((data) => {
+      try { if (data && data.owner) localStorage.setItem('rehal:owner', JSON.stringify(data.owner)); } catch {}
+      alert('تم إنشاء الحساب بنجاح. يجري تحويلك للوحة المالك.');
+      window.location.href = 'owner-dashboard.html';
     })
     .catch(err => alert(err.message || 'حدث خطأ'))
     .finally(()=>{ btn.innerHTML = original; btn.disabled=false; });
