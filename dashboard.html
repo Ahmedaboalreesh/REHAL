@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة المستخدم - رحال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header class="dash-header">
+        <div class="dash-nav">
+            <a href="index.html" class="brand">
+                <i class="fas fa-bus"></i>
+                <span>رحال</span>
+            </a>
+            <nav class="links">
+                <a href="#" id="link-home" class="active">رحلاتي</a>
+                <a href="#" id="link-search">بحث عن رحلة</a>
+                <a href="#" id="link-profile">حسابي</a>
+            </nav>
+            <div class="actions">
+                <button id="logoutBtn" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    خروج
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dash-container">
+        <section id="section-home" class="section active">
+            <h1 class="title">مرحبا، <span id="userName">...</span></h1>
+            <div class="grid">
+                <div class="card stats">
+                    <div>
+                        <div class="stat-number" id="statTrips">0</div>
+                        <div class="stat-label">رحلات مكتملة</div>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="statUpcoming">0</div>
+                        <div class="stat-label">رحلات قادمة</div>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="statSaved">0</div>
+                        <div class="stat-label">مسارات محفوظة</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-calendar-alt"></i> الرحلات القادمة</h2>
+                    <div id="upcomingList" class="list empty">لا توجد رحلات قادمة بعد</div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-history"></i> آخر الرحلات</h2>
+                    <div id="recentList" class="list empty">لا يوجد سجل رحلات</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-search" class="section">
+            <h1 class="title">ابحثي عن رحلة</h1>
+            <div class="card">
+                <form id="quickSearch" class="search-form">
+                    <select id="qDeparture" required>
+                        <option value="">منطقة المغادرة</option>
+                        <option value="riyadh-center">وسط الرياض</option>
+                        <option value="riyadh-north">شمال الرياض</option>
+                        <option value="riyadh-south">جنوب الرياض</option>
+                        <option value="riyadh-east">شرق الرياض</option>
+                        <option value="riyadh-west">غرب الرياض</option>
+                        <option value="olaya">العليا</option>
+                        <option value="malaz">الملز</option>
+                        <option value="nasim">النسيم</option>
+                        <option value="shifa">الشفا</option>
+                        <option value="hittin">حطين</option>
+                        <option value="al-nakheel">النخيل</option>
+                    </select>
+                    <select id="qDestination" required>
+                        <option value="">الوجهة النهائية</option>
+                        <option value="ksu">جامعة الملك سعود</option>
+                        <option value="imamu">جامعة الإمام محمد بن سعود</option>
+                        <option value="ksau">جامعة الملك سعود للعلوم الصحية</option>
+                        <option value="psu">جامعة الأميرة نورة</option>
+                        <option value="riyadh-center">وسط الرياض</option>
+                        <option value="riyadh-north">شمال الرياض</option>
+                        <option value="riyadh-south">جنوب الرياض</option>
+                        <option value="riyadh-east">شرق الرياض</option>
+                        <option value="riyadh-west">غرب الرياض</option>
+                        <option value="olaya">العليا</option>
+                        <option value="malaz">الملز</option>
+                        <option value="nasim">النسيم</option>
+                        <option value="shifa">الشفا</option>
+                        <option value="hittin">حطين</option>
+                        <option value="al-nakheel">النخيل</option>
+                    </select>
+                    <input id="qDate" type="date" required>
+                    <button class="primary" type="submit"><i class="fas fa-search"></i> بحث</button>
+                </form>
+                <div id="searchResults" class="results"></div>
+            </div>
+        </section>
+
+        <section id="section-profile" class="section">
+            <h1 class="title">حسابي</h1>
+            <div class="card">
+                <div class="profile-grid">
+                    <div>
+                        <div class="field"><span>الاسم:</span> <strong id="pName">—</strong></div>
+                        <div class="field"><span>البريد:</span> <strong id="pEmail">—</strong></div>
+                        <div class="field"><span>الجوال:</span> <strong id="pPhone">—</strong></div>
+                    </div>
+                    <div>
+                        <div class="field"><span>النوع:</span> <strong id="pType">—</strong></div>
+                        <div class="field"><span>المنطقة:</span> <strong id="pDistrict">—</strong></div>
+                        <div class="field"><span>الجهة:</span> <strong id="pAffiliation">—</strong></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
+

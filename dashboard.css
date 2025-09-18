@@ -1,0 +1,48 @@
+* { box-sizing: border-box; }
+body { font-family: 'Cairo', sans-serif; background:#f6f7fb; color:#333; margin:0; }
+
+.dash-header { position: sticky; top:0; z-index: 50; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; box-shadow:0 4px 16px rgba(0,0,0,.1); }
+.dash-nav { max-width:1100px; margin:0 auto; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; }
+.brand { display:flex; align-items:center; gap:10px; color:#fff; text-decoration:none; font-weight:800; font-size:20px; }
+.links a { color:#fff; text-decoration:none; margin-left:16px; opacity:.9; padding:6px 10px; border-radius:8px; }
+.links a.active, .links a:hover { background:rgba(255,255,255,.15); }
+.logout { background:#fff; color:#6b6fe7; border:none; padding:10px 12px; border-radius:10px; font-weight:800; cursor:pointer; }
+
+.dash-container { max-width:1100px; margin:24px auto; padding:0 16px; }
+.title { font-size:24px; margin-bottom:16px; font-weight:800; }
+.grid { display:grid; grid-template-columns: 1fr; gap:16px; }
+.card { background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.08); padding:16px; }
+.card-title { display:flex; align-items:center; gap:8px; margin:0 0 12px; font-size:18px; }
+
+.stats { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; text-align:center; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; }
+.stat-number { font-size:28px; font-weight:800; }
+.stat-label { opacity:.9; }
+
+.list.empty { color:#777; }
+.trip-item { display:flex; justify-content:space-between; align-items:center; padding:12px; border:1px solid #eee; border-radius:12px; margin-bottom:10px; }
+.trip-item .meta { color:#666; font-size:14px; }
+.chip { background:#eef2ff; color:#4f46e5; padding:4px 8px; border-radius:999px; font-size:12px; font-weight:700; }
+
+.search-form { display:grid; grid-template-columns: repeat(4,1fr); gap:10px; }
+.search-form select, .search-form input { padding:10px; border:2px solid #e6e6e6; border-radius:10px; font-family:'Cairo',sans-serif; }
+.search-form .primary { background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; border:none; border-radius:10px; font-weight:800; cursor:pointer; }
+
+.results { margin-top:12px; display:grid; gap:10px; }
+.result-card { border:2px solid #e6e6e6; border-radius:12px; padding:12px; display:grid; grid-template-columns: 1fr auto; gap:8px; align-items:center; }
+.result-card .actions { display:flex; gap:8px; }
+.btn { padding:8px 10px; border:none; border-radius:10px; font-weight:800; cursor:pointer; }
+.btn.primary { background:#667eea; color:#fff; }
+.btn.outline { background:#fff; color:#667eea; border:2px solid #667eea; }
+
+.profile-grid { display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+.field { padding:10px; border:1px solid #eee; border-radius:10px; background:#fafafa; }
+
+.section { display:none; }
+.section.active { display:block; }
+
+@media (max-width: 768px){
+  .stats { grid-template-columns: 1fr; }
+  .search-form { grid-template-columns: 1fr; }
+  .profile-grid { grid-template-columns: 1fr; }
+}
+

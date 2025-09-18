@@ -130,9 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!res.ok) throw new Error(data.error || 'فشل إنشاء الحساب');
             return data;
         })
-        .then(() => {
-            alert('تم إنشاء الحساب بنجاح!');
-            window.location.href = 'index.html';
+        .then((data) => {
+            try {
+                if (data && data.user) {
+                    localStorage.setItem('rehal:user', JSON.stringify(data.user));
+                }
+            } catch {}
+            alert('تم إنشاء الحساب بنجاح! يجري تحويلك للوحة المستخدم.');
+            window.location.href = 'dashboard.html';
         })
         .catch((err) => {
             alert(err.message || 'حدث خطأ غير متوقع');
